@@ -1,0 +1,14 @@
+CMS-style blog site
+Using MVC paradigm
+Handlebars.js 
+Authentication: Sequelize, ORM, express-session
+
+Homepage: blog posts, nav bars (Home, Dashboard, Logout/login)
+Sign-up or login-page: username and password and email
+Blog post: title and date created
+Click blog-post: post title, content, post creator, date created, and commemt section. 
+Dashboard: user's login page with created post, option to "add new"
+"ADD NEW" : title, contents, and btn to "create"
+Dashboard: existing post options: delete or update
+add, update, or delete comment only for users who logins. 
+
