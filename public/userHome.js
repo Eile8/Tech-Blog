@@ -1,64 +1,48 @@
 //home login page: existing posts, add new, update or delete posts
 
-const removeLoveBtns = document.querySelectorAll(".removeLove");
-const removeHateBtns = document.querySelectorAll(".removeHate");
-const addLoveForm = document.querySelector("#addLoveForm")
-const addHateForm = document.querySelector("#addHateForm")
+const removePostBtns = document.querySelectorAll(".removePost");
+const addPost = document.querySelector("#addPost")
+const updatePost = document.querySelector("#updatePost")
 
-removeLoveBtns.forEach(btn=>{
+removePostBtns.forEach(btn=>{
     btn.addEventListener("click",e=>{
         const idToRemove = e.target.getAttribute("data-id");
-        fetch(`/api/users/love/${idToRemove}`,{
+        fetch(`/api/users/post/${idToRemove}`,{
             method:"DELETE",
         }).then(res=>{
             if(res.ok){
                location.reload()
             } else {
-                alert("trumpet sound")
-
-            }
-        })
-    })
-})
-removeHateBtns.forEach(btn=>{
-    btn.addEventListener("click",e=>{
-        const idToRemove = e.target.getAttribute("data-id");
-        fetch(`/api/users/hate/${idToRemove}`,{
-            method:"DELETE",
-        }).then(res=>{
-            if(res.ok){
-               location.reload()
-            } else {
-                alert("trumpet sound")
+                alert("fail to remove")
 
             }
         })
     })
 })
 
-addLoveForm.addEventListener("submit",e=>{
+addPost.addEventListener("submit",e=>{
     e.preventDefault();
-    const addLoveId = document.querySelector("#chosenLoveFlavor").value;
-    fetch(`/api/users/love/${addLoveId}`,{
+    const addPostID = document.querySelector("#PostID").value;
+    fetch(`/api/users/post/${addPostID}`,{
         method:"POST"
     }).then(res=>{
         if(res.ok){
            location.reload()
         } else {
-            alert("trumpet sound")
+            alert("fail to add")
         }
     })
 })
-addHateForm.addEventListener("submit",e=>{
+updatePost.addEventListener("submit",e=>{
     e.preventDefault();
-    const addHateId = document.querySelector("#chosenHateFlavor").value;
-    fetch(`/api/users/hate/${addHateId}`,{
+    const updatePostId = document.querySelector("#PostID").value;
+    fetch(`/api/users/post/${updatePostId}`,{
         method:"POST"
     }).then(res=>{
         if(res.ok){
            location.reload()
         } else {
-            alert("trumpet sound")
+            alert("fail to update")
         }
     })
 })

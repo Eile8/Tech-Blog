@@ -1,5 +1,5 @@
 const express = require('express');
-const { User } = require('../models/User');
+const { User } = require('../models');
 const router = express.Router();
 const bcrypt = require("bcrypt")
 
@@ -15,6 +15,7 @@ router.get("/", async(req,res)=>{
 
 })
 
+//Find user
 router.get("/:id", async(req,res)=>{
     try{
         const user = await User.findByPk(req.params.id);
@@ -26,6 +27,7 @@ router.get("/:id", async(req,res)=>{
     }
 })
 
+//New User (sign up)
 router.post('/', async(req,res)=>{
     try{
         const newUserData = await User.create(req.body);
@@ -39,6 +41,7 @@ router.post('/', async(req,res)=>{
     }
 })
 
+//User Login
 router.post('/login', async(req,res)=>{
     const user = await User.findOne({where:{username:req.body.username}});
     if (!user){

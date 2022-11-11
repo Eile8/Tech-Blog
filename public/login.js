@@ -2,7 +2,7 @@ const loginForm = document.querySelector("#loginForm");
 loginForm.addEventListener("submit",e=>{
     e.preventDefault();
     const userObj = {
-        email:document.querySelector("#loginEmail").value,
+        email:document.querySelector("#loginUser").value,
         password:document.querySelector("#loginPassword").value
     }
     fetch("/api/users/login",{
@@ -16,7 +16,7 @@ loginForm.addEventListener("submit",e=>{
            alert("success!")
            return res.json();
         } else {
-            alert("trumpet sound")
+            alert("fail!")
             location.reload();
         }
     }).then(data=>{

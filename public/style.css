@@ -1,0 +1,45 @@
+body {
+    background:salmon
+}
+
+.authForm {
+    border:2px solid black;
+    border-radius: 10px;
+    /* min-height:50vh; */
+    margin:0 auto;
+    width:50vw;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: flex-end;
+    
+}
+
+.authForm input, .authForm button,.authForm textarea{
+    width: 90%;
+    display: block;
+    margin:10px auto;
+}
+
+.canBox {
+    display: flex;
+    flex-wrap:wrap;
+}
+.canBox img {
+    display: block;
+    width: 80%;
+}
+
+.canDiv {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    border:1px solid black;
+}
+
+.canDiv button {
+    width:100%
+}
+
+form.canDiv {
+    align-items: center;
+}

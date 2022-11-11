@@ -1,0 +1,21 @@
+<div id="dashboard">
+    <div id="sidebar">
+        <a href="/addpost"><button id="addPostBtn">Add New Post</button></a>
+
+    <div class="post-container" id="dashboard-blog">
+        {{#each Post as |Post|}}
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div id="post-container">
+                {{>art-preview-card post}}
+            </div>
+            <div>
+                <button id="editBtn">Edit</button>
+                <button class="removeBtn" artPId="{{post.id}}">Remove</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+<script src="/js/delete-artpiece-script.js"></script>

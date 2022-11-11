@@ -3,9 +3,7 @@ signupForm.addEventListener("submit",e=>{
     e.preventDefault();
     const userObj = {
         username:document.querySelector("#signupUsername").value,
-        email:document.querySelector("#signupEmail").value,
         password:document.querySelector("#signupPassword").value,
-        bio:document.querySelector("#signupBio").value,
     }
     fetch("/api/users/",{
         method:"POST",
@@ -18,7 +16,7 @@ signupForm.addEventListener("submit",e=>{
            alert("success!")
            return res.json()
         } else {
-            alert("trumpet sound")
+            alert("fail to load")
             location.reload();
         }
     }).then(data=>{

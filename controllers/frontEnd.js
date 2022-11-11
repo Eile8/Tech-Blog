@@ -28,7 +28,7 @@ router.get('/post/:id', async (req,res)=>{
     try{
         const onePost = await Post.findOne({
             where:{id:req.params.id},
-            include:[Keyword,User,{
+            include:[User,{
                 model:Comment,
                 include:User
             }],
@@ -49,8 +49,8 @@ router.get('/dashboard', async(req,res)=>{
     if (req.session.activeUser){
         const myPage = await Post.findAll({
             where:{UserId:req.session.activeUser.id},
-            include:[User,Keyword],
-            order:sequelize.literal('updatedAt DESC')
+            include:[User],
+            order:sequelize.literal('updatedAt')
         })
         const passedInObject = {
             activeUser: req.session.activeUser,
@@ -71,8 +71,8 @@ router.get('/blog/:id', async(req,res)=>{
         }
         const post = await Post.findAll({
             where:{UserId:req.params.id},
-            include:[User,Keyword],
-            order:sequelize.literal('updatedAt DESC')
+            include:[User],
+            order:sequelize.literal('updatedAt')
         });
         const passedInObject = {
             activeUser: req.session.activeUser,
